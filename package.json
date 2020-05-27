@@ -3,6 +3,9 @@
 				"description": "A Drawful clone, but with blackjack and hookers - Updated 11/4/17",
 				"version": "0.1.2",
 				"author": "Kyle Andrews <andrews@gamesbykyle.com> (http://gamesbykyle.com)",
+				"engines": {
+								"node": "12.16.x"
+				},
 				"dependencies": {
 								"errorhandler": "^1.5.1",
 								"express": "^4.17.1",
@@ -15,10 +18,10 @@
 								"cssnano": "^3.10.0",
 								"grunt": "~1.0.1",
 								"grunt-browser-sync": "^2.2.0",
-								"grunt-contrib-sass": "~1.0.0",
 								"grunt-contrib-jshint": "~1.1.0",
+								"grunt-contrib-sass": "~1.0.0",
 								"grunt-contrib-uglify": "~2.0.0",
-								"grunt-contrib-watch": "~1.0.0",
+								"grunt-contrib-watch": "^1.1.0",
 								"grunt-newer": "^1.2.0",
 								"grunt-postcss": "^0.8.0",
 								"grunt-svgmin": "^4.0.0",

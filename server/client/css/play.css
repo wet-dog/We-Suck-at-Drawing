@@ -4,8 +4,14 @@
 }
 
 body{
-    background-color: #e1e3e2;
+    background-color: #fff;
     overflow-x: hidden;
+    position: relative;
+    margin: 0px;
+    overflow: hidden;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
 }
 
 #site-wrapper{
@@ -14,12 +20,12 @@ body{
     overflow: hidden;
 }
 
-header{
+/* header{
     width: 100vw;
     height: 50px;
     background-color: #e37e18;
     border-bottom: 4px #181818 solid;
-}
+} */
 
 #username{
     font-family: "Roboto Slab", serif;
@@ -165,33 +171,278 @@ header{
 
 /* LOGIN STUFF */
 
+/* #signin-container{
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  font-family: Arial, Helvetica, "sans-serif";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 0px;
+  margin-left: 760px;
+  margin-right: 760px;
+  margin-top: 0px;
+  max-width: 400px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 70px;
+} */
+
+#singin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #login-wrapper{
-    position: relative;
-    margin: 35px auto 0px;
-    height: 400px;
-    width: 300px;
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  flex-grow: 0;
+  font-family: Helvetica, "sans-serif";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  padding-bottom: 15px;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a50b5e;
+  margin-bottom: 20px;
 }
 
 h1{
-    font-family: "Roboto Slab", serif;
-    font-size: 30px;
-    color: #181818;
-    margin: 40px 0px 0px 0px;
-    width: 100vw;
-    text-align: center;
+    font-family: "Helvetica", sans-serif;
+    font-size: 28px;
+    color: #ffff;
+    padding-bottom: 4px;
+    letter-spacing: -2px;
 }
 
 input{
-    outline: none;
-    border: 4px #181818 solid;
-    height: 50px;
-    width: 275px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #181818;
-    font-family: "Roboto Slab", serif;
-    font-size: 25px;
-    text-transform: uppercase;
+  background-color: rgb(224, 224, 224);
+  background-image: none;
+  border-bottom-color: rgb(0, 0, 0);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(0, 0, 0);
+  border-left-style: solid;
+  border-left-width: 0px;
+  border-right-color: rgb(0, 0, 0);
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-top-color: rgb(0, 0, 0);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #333;
+  display: block;
+  font-family: Helvetica, "sans-serif";
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 25.7167px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-bottom: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 20px;
+  text-transform: uppercase;
+  width: 370px;
+}
+
+input::placeholder {
+  color: rgb(255, 255, 0)
+  opacity: 1
+}
+
+.text-signin{
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+  font-family: Helvetica, "sans-serif";
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 24.2833px;
+  margin-bottom: 5px;
+  max-width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#remaining-chars {
+  float: right;
+}
+
+#jbg_form{
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  font-family: Helvetica, "sans-serif";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  position: relative;
+}
+
+.signin-fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+}
+
+#form-group{
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  font-family: Helvetica, "sans-serif";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.col-xs-12{
+  box-sizing: border-box;
+  color: rgb(51, 51, 51);
+  float: left;
+  font-family: Helvetica, "sans-serif";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  text-align: center;
+  width: 370px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#login-send{
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(224, 224, 224);
+  /* background-image: linear-gradient(45deg, rgba(125, 185, 232, 0) 25%, rgba(112, 164, 237, 0.7) 32%, rgb(93, 134, 244) 42%, rgb(71, 97, 252) 54%, rgb(63, 85, 254) 58%); */
+  background-origin: padding-box;
+  background-position: 0px 50%;
+  background-position-x: 0px;
+  background-position-y: 50%;
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-width: 0px;
+  /* box-shadow: rgb(80, 80, 80) 0px 5px 0px 0px; */
+  box-sizing: border-box;
+  color: rgb(80, 80, 80);
+  cursor: default;
+  font-family: Helvetica, "sans-serif";
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  font-size-adjust: none;
+  font-stretch: 100%;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-alternates: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-variation-settings: normal;
+  font-weight: 700;
+  height: 48px;
+  line-height: 25.7167px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  max-width: 420px;
+  min-width: 70px;
+  outline-color: rgb(80, 80, 80);
+  outline-style: none;
+  outline-width: 0px;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  text-align: center;
+  text-transform: none;
+  transition-property: color, background-position, box-shadow;
+  user-select: none;
+  width: 340px;
+  -moz-appearance: button;
+}
+
+.button-signin:active {
+ position:relative;
+ top:2px;
+ outline:0;
+ -webkit-box-shadow:inset 0 2px 0 0 #0e167d;
+ -moz-box-shadow:inset 0 2px 0 0 #0e167d;
+ box-shadow:inset 0 2px 0 0 #0e167d
+}
+
+.play-text{
+  box-sizing: border-box;
+  color: rgb(80, 80, 80);
+  cursor: default;
+  font-family: Helvetica, "sans-serif";
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  font-size-adjust: none;
+  font-stretch: 100%;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-alternates: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-variation-settings: normal;
+  font-weight: 700;
+  line-height: 25.7167px;
+  text-align: center;
+  text-transform: none;
 }
 
 #login-text{
@@ -199,27 +450,6 @@ input{
     font-size: 20px;
     color: #2f85e8;
     margin: 20px 0px 0px 0px;
-}
-
-#login-send{
-    width: 125px;
-    height: 50px;
-    font-family: "Roboto Slab", serif;
-    font-size: 25px;
-    color: #e8e8e8;
-    background-color: #181818;
-    border: 4px #181818 solid;
-    outline: none;
-    margin: 30px auto 0px;
-}
-
-#login-send:hover{
-    background-color: #d9d9d9;
-    color: #181818;
-}
-
-#login-send:active{
-    background-color: #767676;
 }
 
 #login-error{
@@ -238,4 +468,71 @@ input{
     position: relative;
     width: 98%;
     top: 15px;
+}
+
+/* FUCKING FUCKED IT */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  background: #a50b5e;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em auto;
+    width: 25em;
+}
+
+label, input, button {
+  margin-bottom: 5px;
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+input, button {
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  border: 0;
+}
+
+label {
+  margin-right: auto;
+  padding-left: 0.75em;
+}
+
+input {
+  width: 100%;
+  height: 2.5em;
+  padding-left: 0.75em;
+}
+
+button {
+  margin-top: 2em;
+  width: 75%;
+  height: 3em;
+  box-shadow: 0px -5px inset #505050;
+}
+
+button:active {
+  box-shadow: 0px 2px inset #0e167d;
+  transform: translateY(2px);
 }

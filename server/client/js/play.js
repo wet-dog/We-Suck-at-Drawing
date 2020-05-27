@@ -11,6 +11,17 @@ var currentNumberOfAnswers = 0;
 var yourAnswer = '';
 var youVoted = false;
 var youCanVote = true;
+var maxPlayers = 20;
+var answers = document.getElementById('input-answers');
+
+// Dynamically create answer buttons
+for(var i = 1; i < maxPlayers; i++){
+  var btn = document.createElement('BUTTON');
+  btn.className = 'answers-bttn';
+  btn.id = 'ans' + i;
+  btn.textContent = 'Answer ' + i;
+  answers.appendChild(btn);
+}
 
 ////////////////////////////////////////////////////////////////////////////JQUERY STUFF\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 $('#play').hide();
@@ -39,6 +50,14 @@ $('#ans17').hide();
 $('#ans18').hide();
 $('#ans19').hide();
 $('#ans20').hide();
+
+// Display how many remaining characters for username
+$('#display-name').keyup(function(){
+    if(this.value.length > $(this).attr('maxlength')){
+        return false;
+    }
+    $('#remaining-chars').text($(this).attr('maxlength') - this.value.length)
+});
 
 $('#login-send').click(function(){
 
@@ -91,125 +110,13 @@ $('#it-send').click(function(){
     });
 });
 
-$('#ans1').click(function(){
+$('.answers-bttn').each(function(i, button) {
+  $(this).click(function(){
     HideAllAnswers();
     socket.emit('UCA', {
-        choice: $('#ans1').text()
+      choice: $(this).text()
     });
-});
-$('#ans2').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans2').text()
-    });
-});
-$('#ans3').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans3').text()
-    });
-});
-$('#ans4').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans4').text()
-    });
-});
-$('#ans5').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans5').text()
-    });
-});
-$('#ans6').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans6').text()
-    });
-});
-$('#ans7').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans7').text()
-    });
-});
-$('#ans8').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans8').text()
-    });
-});
-$('#ans9').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans9').text()
-    });
-});
-$('#ans10').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans10').text()
-    });
-});
-$('#ans11').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans11').text()
-    });
-});
-$('#ans12').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans12').text()
-    });
-});
-$('#ans13').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans13').text()
-    });
-});
-$('#ans14').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans14').text()
-    });
-});
-$('#ans15').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans15').text()
-    });
-});
-$('#ans16').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans16').text()
-    });
-});
-$('#ans17').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans17').text()
-    });
-});
-$('#ans18').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans18').text()
-    });
-});
-$('#ans19').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans19').text()
-    });
-});
-$('#ans20').click(function(){
-    HideAllAnswers();
-    socket.emit('UCA', {
-        choice: $('#ans20').text()
-    });
+  });
 });
 
 ////////////////////////////////////////////////////////////////////////////SOCKET MESSAGES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -274,102 +181,27 @@ socket.on('YTL', function(){
 
 //You're to late, you can't type an answer anymore
 socket.on('SAV', function(){
-    if(!youVoted){
-        HideAllAnswersNoVote();
-    }
+  if(!youVoted){
+    HideAllAnswersNoVote();
+  }
 });
 
 //The server just sent us a new voting option, we should show it to the player
 socket.on('NVO', function(data){
-    if(youCanVote){
-        $('#prompt').hide();
-        $('#input-answers').show();
+  if(youCanVote){
+    $('#prompt').hide();
+    $('#input-answers').show();
 
-        currentNumberOfAnswers++;
+    currentNumberOfAnswers++;
 
-        //This is show the buttons and load the answer text into them
-        if(currentNumberOfAnswers == 1 && data.possibleAnswer != yourAnswer){
-            $('#ans1').show();
-            $('#ans1').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 2 && data.possibleAnswer != yourAnswer){
-            $('#ans2').show();
-            $('#ans2').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 3 && data.possibleAnswer != yourAnswer){
-            $('#ans3').show();
-            $('#ans3').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 4 && data.possibleAnswer != yourAnswer){
-            $('#ans4').show();
-            $('#ans4').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 5 && data.possibleAnswer != yourAnswer){
-            $('#ans5').show();
-            $('#ans5').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 6 && data.possibleAnswer != yourAnswer){
-            $('#ans6').show();
-            $('#ans6').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 7 && data.possibleAnswer != yourAnswer){
-            $('#ans7').show();
-            $('#ans7').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 8 && data.possibleAnswer != yourAnswer){
-            $('#ans8').show();
-            $('#ans8').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 9 && data.possibleAnswer != yourAnswer){
-            $('#ans9').show();
-            $('#ans9').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 10 && data.possibleAnswer != yourAnswer){
-            $('#ans10').show();
-            $('#ans10').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 11 && data.possibleAnswer != yourAnswer){
-            $('#ans11').show();
-            $('#ans11').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 12 && data.possibleAnswer != yourAnswer){
-            $('#ans12').show();
-            $('#ans12').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 13 && data.possibleAnswer != yourAnswer){
-            $('#ans13').show();
-            $('#ans13').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 14 && data.possibleAnswer != yourAnswer){
-            $('#ans14').show();
-            $('#ans14').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 15 && data.possibleAnswer != yourAnswer){
-            $('#ans15').show();
-            $('#ans15').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 16 && data.possibleAnswer != yourAnswer){
-            $('#ans16').show();
-            $('#ans16').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 17 && data.possibleAnswer != yourAnswer){
-            $('#ans17').show();
-            $('#ans17').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 18 && data.possibleAnswer != yourAnswer){
-            $('#ans18').show();
-            $('#ans18').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 19 && data.possibleAnswer != yourAnswer){
-            $('#ans19').show();
-            $('#ans19').text(data.possibleAnswer);
-        }
-        else if(currentNumberOfAnswers == 20 && data.possibleAnswer != yourAnswer){
-            $('#ans20').show();
-            $('#ans20').text(data.possibleAnswer);
-        }
-    }
-
+    // This is show the buttons and load the answer text into them
+    $('.answers-bttn').each(function(i, button) {
+      if(currentNumberOfAnswers == i && data.possibleAnswer != yourAnswer){
+        $(this).show();
+        $(this).text(data.possibleAnswer);
+      }
+    });
+  }
 });
 
 ////////////////////////////////////////////////////////////////////////////FUNCTIONS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
